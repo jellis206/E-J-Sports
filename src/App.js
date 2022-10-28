@@ -8,9 +8,12 @@ import NBA from './pages/NBA';
 import Home from './pages/Home';
 import NoPage from './pages/NoPage';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 export default function App() {
     return (
+        
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<NavBar />}>
@@ -21,5 +24,6 @@ export default function App() {
                 </Route>
             </Routes>
         </BrowserRouter>
+
     );
 }
