@@ -34,7 +34,6 @@ const NBA = () => {
     getAllGames();
     return (
         <div class="games" id="match"></div>
-
     );
 };
 
