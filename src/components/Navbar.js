@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Dropdown from './Dropdown';
+import { Link, Outlet } from 'react-router-dom';
+import { ReactComponent as Logo } from '../assets/EJSports.svg';
 import './Navbar.css';
 
 function Navbar() {
@@ -29,17 +29,18 @@ function Navbar() {
     return (
         <>
             <nav className='navbar'>
-                <Link to='/' className='navbar-logo' onClick={ closeMobileMenu }>
-                    EPIC
-                    <i class='fab fa-firstdraft' />
-                </Link>
+                <div>
+                    <Link to='/' className='navbar-logo' onClick={ closeMobileMenu }>
+                        <Logo />
+                    </Link>
+                </div>
                 <div className='menu-icon' onClick={ handleClick }>
                     <i className={ click ? 'fas fa-times' : 'fas fa-bars' } />
                 </div>
                 <ul className={ click ? 'nav-menu active' : 'nav-menu' }>
                     <li className='nav-item'>
                         <Link to='/' className='nav-links' onClick={ closeMobileMenu }>
-                            Home
+                            <i className='fas fa-home' />
                         </Link>
                     </li>
                     <li
@@ -52,9 +53,8 @@ function Navbar() {
                             className='nav-links'
                             onClick={ closeMobileMenu }
                         >
-                            NFL <i className='fas fa-caret-down' />
+                            NFL <i className='fas fa-football' />
                         </Link>
-                        { dropdown && <Dropdown parent='nfl' /> }
                     </li>
                     <li
                         className='nav-item'
@@ -66,12 +66,13 @@ function Navbar() {
                             className='nav-links'
                             onClick={ closeMobileMenu }
                         >
-                            NBA <i className='fas fa-caret-down' />
+                            NBA <i className='fas fa-basketball' />
                         </Link>
-                        { dropdown && <Dropdown parent='nba' /> }
                     </li>
                 </ul>
             </nav>
+
+            <Outlet />
         </>
     );
 }
