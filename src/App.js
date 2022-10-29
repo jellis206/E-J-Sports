@@ -1,25 +1,24 @@
 import React from 'react';
-import { ReactDOM } from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import logo from './logo.svg';
-import NavBar from './pages/NavBar';
-import NFL from './pages/NFL';
-import NBA from './pages/NBA';
-import Home from './pages/Home';
-import NoPage from './pages/NoPage';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Navbar from './components/Navbar';
+import Home from './components/pages/Home';
+import NBA from './components/pages/NBA';
+import NFL from './components/pages/NFL';
+import NoPage from './components/pages/NoPage';
 
-export default function App() {
+function App() {
     return (
-        <BrowserRouter>
+        <Router>
+            <Navbar />
             <Routes>
-                <Route path="/" element={<NavBar />}>
-                    <Route index element={<Home />} />
-                    <Route path='/nba' element={<NBA />} />
-                    <Route path="/nfl" element={<NFL />} />
-                    <Route path="*" element={<NoPage />} />
-                </Route>
+                <Route path='/' exact component={ Home } />
+                <Route path='/nfl' component={ NFL } />
+                <Route path='/nba' component={ NBA } />
+                <Route path="*" element={ <NoPage /> } />
             </Routes>
-        </BrowserRouter>
+        </Router>
     );
 }
+
+export default App;
