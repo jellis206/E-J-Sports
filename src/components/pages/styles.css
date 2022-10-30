@@ -154,7 +154,6 @@ h5 {
 }
 
 .nav-item:hover:not(.active) {
-    background-color: indianred;
     border-radius: 10px;
 }
 
