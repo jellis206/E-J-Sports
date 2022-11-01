@@ -5,26 +5,26 @@ import './Navbar.css';
 
 function Navbar() {
     const [ click, setClick ] = useState(false);
-    const [ dropdown, setDropdown ] = useState(false);
+    // const [ dropdown, setDropdown ] = useState(false);
 
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
 
-    const onMouseEnter = () => {
-        if (window.innerWidth < 960) {
-            setDropdown(false);
-        } else {
-            setDropdown(true);
-        }
-    };
+    // const onMouseEnter = () => {
+    //     if (window.innerWidth < 960) {
+    //         setDropdown(false);
+    //     } else {
+    //         setDropdown(true);
+    //     }
+    // };
 
-    const onMouseLeave = () => {
-        if (window.innerWidth < 960) {
-            setDropdown(false);
-        } else {
-            setDropdown(false);
-        }
-    };
+    // const onMouseLeave = () => {
+    //     if (window.innerWidth < 960) {
+    //         setDropdown(false);
+    //     } else {
+    //         setDropdown(false);
+    //     }
+    // };
 
     return (
         <>
@@ -45,11 +45,9 @@ function Navbar() {
                     </li>
                     <li
                         className='nav-item'
-                        onMouseEnter={ onMouseEnter }
-                        onMouseLeave={ onMouseLeave }
                     >
                         <Link
-                            to='/nfl'
+                            to='nfl'
                             className='nav-links'
                             onClick={ closeMobileMenu }
                         >
@@ -58,11 +56,9 @@ function Navbar() {
                     </li>
                     <li
                         className='nav-item'
-                        onMouseEnter={ onMouseEnter }
-                        onMouseLeave={ onMouseLeave }
                     >
                         <Link
-                            to='/nba'
+                            to='nba'
                             className='nav-links'
                             onClick={ closeMobileMenu }
                         >

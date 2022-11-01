@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Switch } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './components/pages/Home';
@@ -11,14 +11,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
     return (
         <>
-            <Router basename='/React-E-J-Sports/build'>
+            <Router basename='/React-J-S-Sports/build'>
                 <Navbar />
-                <Routes>
-                    <Route path='/' exact element={ <Home /> } />
+                <Route path='/' element={ <Home /> } >
                     <Route path='nfl' element={ <NFL /> } />
                     <Route path='nba' element={ <NBA /> } />
-                    <Route path="*" element={ <NoPage /> } />
-                </Routes>
+                </Route>
+                <Route path="*" element={ <NoPage /> } />
             </Router>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark bottom justify-content-center fixed-bottom">
                 <a class="navbar-brand" href="https://github.com/jellis206/React-E-J-Sports">
