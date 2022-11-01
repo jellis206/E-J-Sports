@@ -15,8 +15,8 @@ function App() {
                 <Navbar />
                 <Routes>
                     <Route path='/' exact element={ <Home /> } />
-                    <Route path='/nfl' element={ <NFL /> } />
-                    <Route path='/nba' element={ <NBA /> } />
+                    <Route path='nfl' element={ <NFL /> } />
+                    <Route path='nba' element={ <NBA /> } />
                     <Route path="*" element={ <NoPage /> } />
                 </Routes>
             </Router>
