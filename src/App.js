@@ -13,11 +13,13 @@ function App() {
         <>
             <Router basename='/React-J-S-Sports/build'>
                 <Navbar />
-                <Route path='/' element={ <Home /> } >
-                    <Route path='nfl' element={ <NFL /> } />
-                    <Route path='nba' element={ <NBA /> } />
-                </Route>
-                <Route path="*" element={ <NoPage /> } />
+                <Routes>
+                    <Route path='/' element={ <Home /> } >
+                        <Route path='nfl' element={ <NFL /> } />
+                        <Route path='nba' element={ <NBA /> } />
+                    </Route>
+                    <Route path="*" element={ <NoPage /> } />
+                </Routes>
             </Router>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark bottom justify-content-center fixed-bottom">
                 <a class="navbar-brand" href="https://github.com/jellis206/React-E-J-Sports">
