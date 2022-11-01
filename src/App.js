@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
     return (
         <>
-            <Router basename='/React-E-J-sports/build'>
+            <Router>
                 <Navbar />
                 <Routes>
                     <Route path='/' exact element={ <Home /> } />
