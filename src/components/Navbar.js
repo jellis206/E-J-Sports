@@ -47,7 +47,7 @@ function Navbar() {
                         className='nav-item'
                     >
                         <Link
-                            to='nfl'
+                            to='/nfl'
                             className='nav-links'
                             onClick={ closeMobileMenu }
                         >
@@ -58,7 +58,7 @@ function Navbar() {
                         className='nav-item'
                     >
                         <Link
-                            to='nba'
+                            to='/nba'
                             className='nav-links'
                             onClick={ closeMobileMenu }
                         >
@@ -67,8 +67,6 @@ function Navbar() {
                     </li>
                 </ul>
             </nav>
-
-            <Outlet />
         </>
     );
 }
