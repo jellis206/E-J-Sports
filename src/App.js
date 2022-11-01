@@ -14,10 +14,9 @@ function App() {
             <Router basename='/React-J-S-Sports/build'>
                 <Navbar />
                 <Routes>
-                    <Route path='/' element={ <Home /> } >
-                        <Route path='nfl' element={ <NFL /> } />
-                        <Route path='nba' element={ <NBA /> } />
-                    </Route>
+                    <Route path='/' element={ <Home /> } />
+                    <Route path='/nfl' element={ <NFL /> } />
+                    <Route path='/nba' element={ <NBA /> } />
                     <Route path="*" element={ <NoPage /> } />
                 </Routes>
             </Router>
