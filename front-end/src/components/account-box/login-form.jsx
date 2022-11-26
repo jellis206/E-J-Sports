@@ -9,9 +9,20 @@ import {
 } from './styles';
 import { Marginer } from '../marginer/marginer';
 import { AccountContext } from './account-box';
+import { userStore } from '../services/user-store';
 
 export function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext);
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors }
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
+
+  const userState = userStore();
 
   return (
     <FormBoxContainer>

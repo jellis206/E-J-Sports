@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../assets/EJSports.svg';
-import { useStore } from '../services/use-store';
+import { appStore } from '../services/app-store';
 import './Navbar.css';
 
 function Navbar() {
   const [click, setClick] = useState(false);
 
-  const state = useStore();
+  const appState = appStore();
 
   const handleClick = () => {
     setClick(!click);
-    state.mobileMenuActive ? state.toggleOff() : state.toggleOn();
+    appState.mobileMenuActive ? appState.toggleOff() : appState.toggleOn();
   };
 
   const closeMobileMenu = () => {
     setClick(false);
-    state.toggleOff();
+    appState.toggleOff();
   };
 
   return (
