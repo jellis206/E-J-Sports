@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import styled from 'styled-components';
 
 export const BoxContainer = styled.div`
   margin-top: 40px;
@@ -71,8 +72,6 @@ export const InnerContainer = styled.div`
   flex-direction: column;
   padding: 0 1.8em;
 `;
-
-import styled from 'styled-components';
 
 export const FormBoxContainer = styled.div`
   width: 100%;

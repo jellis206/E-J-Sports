@@ -6,12 +6,13 @@ import Home from './components/pages/Home';
 import NBA from './components/pages/NBA';
 import NFL from './components/pages/NFL';
 import NoPage from './components/pages/NoPage';
-import SignIn from './components/pages/SignIn';
+import Signin from './components/pages/Signin';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+
   return (
-    <>
+    <div>
       {/* when deploying put E-J-Sports/build between quotes */ }
       <Router basename="">
         <Navbar />
@@ -19,7 +20,7 @@ function App() {
           <Route path="/" exact element={ <Home /> } />
           <Route path="/nfl" element={ <NFL /> } />
           <Route path="/nba" element={ <NBA /> } />
-          <Route path="/signin" element={ <SignIn /> } />
+          <Route path="/signin" element={ <Signin /> } />
           <Route path="*" element={ <NoPage /> } />
         </Routes>
       </Router>
@@ -35,7 +36,7 @@ function App() {
           </p>
         </a>
       </nav>
-    </>
+    </div>
   );
 }
 

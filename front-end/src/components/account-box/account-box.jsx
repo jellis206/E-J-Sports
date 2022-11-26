@@ -1,6 +1,7 @@
 import React, { useState, createContext } from 'react';
 import { LoginForm } from './login-form';
 import { SignupForm } from './signup-form';
+import { useStore } from '../services/use-store';
 import {
   BoxContainer,
   TopContainer,
@@ -11,11 +12,12 @@ import {
   SmallText
 } from './styles';
 
-export const AccountContext = createContext();
+export const AccountContext = createContext(undefined);
 
 export function AccountBox(props) {
   const [isExpanded, setExpanded] = useState(false);
   const [active, setActive] = useState('signin');
+  const state = useStore();
 
   const playExpandingAnimation = () => {
     setExpanded(true);
@@ -63,34 +65,36 @@ export function AccountBox(props) {
 
   return (
     <AccountContext.Provider value={contextValue}>
-      <BoxContainer>
-        <TopContainer>
-          <BackDrop
-            initial={false}
-            animate={isExpanded ? 'expanded' : 'collapsed'}
-            variants={backdropVariants}
-            transition={expandingTransition}
-          />
-          {active === 'signin' && (
-            <HeaderContainer>
-              <HeaderText>Welcome</HeaderText>
-              <HeaderText>Back</HeaderText>
-              <SmallText>Please sign-in to continue!</SmallText>
-            </HeaderContainer>
-          )}
-          {active === 'signup' && (
-            <HeaderContainer>
-              <HeaderText>Create</HeaderText>
-              <HeaderText>Account</HeaderText>
-              <SmallText>Please sign-up to continue!</SmallText>
-            </HeaderContainer>
-          )}
-        </TopContainer>
-        <InnerContainer>
-          {active === 'signin' && <LoginForm />}
-          {active === 'signup' && <SignupForm />}
-        </InnerContainer>
-      </BoxContainer>
+      {!state.mobileMenuActive && (
+        <BoxContainer>
+          <TopContainer>
+            <BackDrop
+              initial={false}
+              animate={isExpanded ? 'expanded' : 'collapsed'}
+              variants={backdropVariants}
+              transition={expandingTransition}
+            />
+            {active === 'signin' && (
+              <HeaderContainer>
+                <HeaderText>Welcome</HeaderText>
+                <HeaderText>Back</HeaderText>
+                <SmallText>Please sign-in to continue!</SmallText>
+              </HeaderContainer>
+            )}
+            {active === 'signup' && (
+              <HeaderContainer>
+                <HeaderText>Create</HeaderText>
+                <HeaderText>Account</HeaderText>
+                <SmallText>Please sign-up to continue!</SmallText>
+              </HeaderContainer>
+            )}
+          </TopContainer>
+          <InnerContainer>
+            {active === 'signin' && <LoginForm />}
+            {active === 'signup' && <SignupForm />}
+          </InnerContainer>
+        </BoxContainer>
+      )}
     </AccountContext.Provider>
   );
 }

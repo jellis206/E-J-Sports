@@ -2,7 +2,7 @@ import './styles.css';
 import styled from 'styled-components';
 import { AccountBox } from '../account-box/account-box';
 
-const SignInContainer = styled.div`
+const SigninContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
@@ -11,12 +11,12 @@ const SignInContainer = styled.div`
   justify-content: center;
 `;
 
-function SignIn() {
+function Signin() {
   return (
-    <SignInContainer>
+    <SigninContainer>
       <AccountBox />
-    </SignInContainer>
+    </SigninContainer>
   );
 }
 
-export default SignIn;
+export default Signin;
