@@ -35,7 +35,23 @@ const User = mongoose.model('User', userSchema);
 app.get('/api/users', async (req, res) => {
   try {
     let users = await User.find();
+    console.log(users);
     res.send({users: users});
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
+app.get('/api/user', async (req, res) => {
+  const userEmail = req.body.email;
+  const userPassword = req.body.password;
+  
+  
+  try {
+    let user = await User.findOne({email:userEmail,password: userPassword});
+    console.log(user);
+    res.send({user: user});
   } catch (error) {
     console.log(error);
     res.sendStatus(500);
@@ -45,12 +61,13 @@ app.get('/api/users', async (req, res) => {
 
 app.post('/api/users', async (req, res) => {
     const user = new User({
-    name: req.query.name,
-    email: req.query.email,
-    password:req.query.password
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password
   });
   try {
     await user.save();
+    console.log(user);
     res.send({user:user});
   } catch (error) {
     console.log(error);
@@ -63,6 +80,16 @@ app.delete('/api/users/:id', async (req, res) => {
     await User.deleteOne({
       _id: req.params.id
     });
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
+app.delete('/api/users', async (req, res) => {
+  try {
+    await User.deleteMany({});
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
