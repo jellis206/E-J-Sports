@@ -9,7 +9,9 @@ import {
 } from './styles';
 import { Marginer } from '../marginer/marginer';
 import { AccountContext } from './account-box';
-import { userStore } from '../services/user-store';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { LoginSchema, login } from '../services/login.service';
 
 export function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext);
@@ -19,16 +21,18 @@ export function LoginForm(props) {
     handleSubmit,
     watch,
     formState: { errors }
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
-
-  const userState = userStore();
+  } = useForm({ resolver: yupResolver(LoginSchema) });
+  const onSubmit = (data) => login(data.email, data.password);
 
   return (
     <FormBoxContainer>
-      <FormContainer>
-        <Input type="email" placeholder="Email" />
-        <Input type="password" placeholder="Password" />
+      <FormContainer onSubmit={handleSubmit(onSubmit)}>
+        <Input type="email" placeholder="Email" {...register('email')} />
+        <Input
+          type="password"
+          placeholder="Password"
+          {...register('password')}
+        />
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
       <MutedLink href="#">Forget your password?</MutedLink>

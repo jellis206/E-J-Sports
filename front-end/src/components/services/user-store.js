@@ -1,9 +1,14 @@
 import create from 'zustand';
 
-export const userStore = create(set => {
+export const useUserStore = create(set => {
   return {
-    userEmail: '',
+    fullName: '',
+    email: '',
     password: '',
-    loggedIn: false
+    loggedIn: false,
+    setUserFullName: (fullName) => set({ fullName }),
+    setUserEmail: (email) => set({ email }),
+    setPassword: (password) => set({ password }),
+    setLoggedIn: (loggedIn) => set({ loggedIn })
   };
 });

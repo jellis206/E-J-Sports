@@ -1,7 +1,7 @@
 import React, { useState, createContext } from 'react';
 import { LoginForm } from './login-form';
 import { SignupForm } from './signup-form';
-import { appStore } from '../services/app-store';
+import { useAppStore } from '../services/app-store';
 import {
   BoxContainer,
   TopContainer,
@@ -17,7 +17,8 @@ export const AccountContext = createContext(undefined);
 export function AccountBox(props) {
   const [isExpanded, setExpanded] = useState(false);
   const [active, setActive] = useState('signin');
-  const appState = appStore();
+
+  const appState = useAppStore();
 
   const playExpandingAnimation = () => {
     setExpanded(true);
