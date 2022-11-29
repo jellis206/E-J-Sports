@@ -22,5 +22,4 @@ export const LoginSchema = yup.object({
 
 const validateUser = () => {
   const userState = useUserStore();
-
 };
