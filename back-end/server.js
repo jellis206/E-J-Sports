@@ -45,9 +45,9 @@ app.get('/api/users', async (req, res) => {
 
 app.post('/api/users', async (req, res) => {
     const user = new User({
-    name: req.body.name,
-    email: req.body.email,
-    password:req.body.password
+    name: req.query.name,
+    email: req.query.email,
+    password:req.query.password
   });
   try {
     await user.save();
