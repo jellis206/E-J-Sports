@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../assets/EJSports.svg';
-import { appStore } from '../services/app-store';
+import { useAppStore } from '../services/app-store';
 import './Navbar.css';
 
 function Navbar() {
   const [click, setClick] = useState(false);
 
-  const appState = appStore();
+  const appState = useAppStore();
 
   const handleClick = () => {
     setClick(!click);

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const BoxContainer = styled.div`
   margin-top: 40px;
+  margin-bottom: 200px;
   width: 280px;
   min-height: 550px;
   display: flex;
