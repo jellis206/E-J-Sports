@@ -85,5 +85,4 @@ app.delete('/api/users', async (req, res) => {
   }
 });
 
-// changed to 3001 because react app is served to 3000
-app.listen(3001, () => console.log('Server listening on port 3001!'));
+app.listen(3000, () => console.log('Server listening on port 3000!'));
