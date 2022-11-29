@@ -9,15 +9,30 @@ import {
 } from './styles';
 import { Marginer } from '../marginer/marginer';
 import { AccountContext } from './account-box';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { LoginSchema, login } from '../services/login.service';
 
 export function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext);
 
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors }
+  } = useForm({ resolver: yupResolver(LoginSchema) });
+  const onSubmit = (data) => login(data.email, data.password);
+
   return (
     <FormBoxContainer>
-      <FormContainer>
-        <Input type="email" placeholder="Email" />
-        <Input type="password" placeholder="Password" />
+      <FormContainer onSubmit={handleSubmit(onSubmit)}>
+        <Input type="email" placeholder="Email" {...register('email')} />
+        <Input
+          type="password"
+          placeholder="Password"
+          {...register('password')}
+        />
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
       <MutedLink href="#">Forget your password?</MutedLink>

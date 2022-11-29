@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles.css';
+
 async function getAllGames() {
   let pages = [...Array(5).keys()];
   let allData = [];
