@@ -7,7 +7,7 @@ import {
   MDBContainer,
   MDBRow
 } from 'mdb-react-ui-kit';
-import { useUserStore } from '../services/user-store';
+import { useUserStore } from '../../services/user-store';
 
 export default function ProfilePage() {
   const userState = useUserStore();

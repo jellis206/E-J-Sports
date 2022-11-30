@@ -24,7 +24,7 @@ function App() {
           <Route path="*" element={ <NoPage /> } />
         </Routes>
       </Router>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark bottom justify-content-center fixed-bottom">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark bottom justify-content-center">
         <a
           className="navbar-brand"
           href="https://github.com/jellis206/React-E-J-Sports">

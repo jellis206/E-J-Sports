@@ -11,7 +11,7 @@ import { Marginer } from '../marginer/marginer';
 import { AccountContext } from './account-box';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { LoginSchema, login } from '../services/login.service';
+import { LoginSchema, logUserIn } from '../../services/login.service';
 
 export function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext);
@@ -22,7 +22,7 @@ export function LoginForm(props) {
     watch,
     formState: { errors }
   } = useForm({ resolver: yupResolver(LoginSchema) });
-  const onSubmit = (data) => login(data.email, data.password);
+  const onSubmit = (data) => logUserIn(data.email, data.password);
 
   return (
     <FormBoxContainer>

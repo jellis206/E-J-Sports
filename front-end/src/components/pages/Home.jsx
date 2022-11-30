@@ -64,19 +64,6 @@ const Home = () => {
             </a>
           </li>
         </ul>
-
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark bottom justify-content-center fixed-bottom">
-          <a
-            className="navbar-brand"
-            href="https://github.com/jellis206/React-E-J-Sports.git">
-            <p className="footer">
-              <small className="muted-footer">
-                Brought to you by J. Ellis and Ethan Kaloi (this is a link to
-                our repo)
-              </small>
-            </p>
-          </a>
-        </nav>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../assets/EJSports.svg';
-import { useAppStore } from '../services/app-store';
+import { useAppStore } from '../../services/app-store';
 import './Navbar.css';
 
 function Navbar() {
