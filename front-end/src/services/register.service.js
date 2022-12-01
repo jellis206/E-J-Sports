@@ -2,7 +2,8 @@ import * as yup from 'yup';
 import { useUserStore } from './user-store';
 import { instance } from './server-instance.service';
 
-export const LoginSchema = yup.object({
+export const RegisterSchema = yup.object({
+  name: yup.string("Enter your NAME"),
   email: yup.string("You tryna hack me rn bro?")
     .required("Please enter your email")
     .email("Email must be a valid email... duh"),
@@ -11,7 +12,9 @@ export const LoginSchema = yup.object({
     .matches(/[0-9]/, "Password requires a number")
     .matches(/[A-Z]/, "Password requires an uppercase letter")
     .matches(/[a-z]/, "Password requires a lowercase letter")
-    .matches(/[^\w]/, "Password requires a symbol")
+    .matches(/[^\w]/, "Password requires a symbol"),
+  passwordConfirmation: yup.string().required('Passwords must match')
+    .oneOf([ yup.ref('password'), null ], 'Passwords must match')
 }).required();
 
 

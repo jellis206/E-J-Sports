@@ -8,8 +8,11 @@ import NFL from './components/pages/NFL';
 import NoPage from './components/pages/NoPage';
 import Signin from './components/pages/Signin';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useUserStore } from './services/user-store';
+import AccountPage from './components/pages/AccountPage';
 
 function App() {
+  const userState = useUserStore();
 
   return (
     <div>
@@ -20,7 +23,8 @@ function App() {
           <Route path="/" exact element={ <Home /> } />
           <Route path="/nfl" element={ <NFL /> } />
           <Route path="/nba" element={ <NBA /> } />
-          <Route path="/signin" element={ <Signin /> } />
+          { userState.loggedIN && (<Route path="/account" element={ <AccountPage /> } />) }
+          { !userState.loggedIN && (<Route path="/signin" element={ <Signin /> } />) }
           <Route path="*" element={ <NoPage /> } />
         </Routes>
       </Router>

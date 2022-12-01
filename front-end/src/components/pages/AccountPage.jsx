@@ -9,7 +9,7 @@ import {
 } from 'mdb-react-ui-kit';
 import { useUserStore } from '../../services/user-store';
 
-export default function ProfilePage() {
+export default function AccountPage() {
   const userState = useUserStore();
 
   return (

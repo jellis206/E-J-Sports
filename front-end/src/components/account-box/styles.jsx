@@ -133,7 +133,7 @@ export const Input = styled.input`
 
   &:focus {
     outline: none;
-    border-bottom: 2px solid rgb(255, 68, 0);
+    border-bottom: 2px solid rgb(0, 179, 255);
   }
 `;
 

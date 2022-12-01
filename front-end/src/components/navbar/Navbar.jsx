@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../assets/EJSports.svg';
 import { useAppStore } from '../../services/app-store';
+import { useUserStore } from '../../services/user-store';
 import './Navbar.css';
 
 function Navbar() {
   const [click, setClick] = useState(false);
 
   const appState = useAppStore();
+  const userState = useUserStore();
 
   const handleClick = () => {
     setClick(!click);
@@ -49,11 +51,27 @@ function Navbar() {
             </Link>
           </li>
 
-          <li className="nav-item">
-            <Link to="/signin" className="nav-links" onClick={closeMobileMenu}>
-              <i className="fas fa-user-astronaut" />
-            </Link>
-          </li>
+          {userState.loggedIn && (
+            <li className="nav-item">
+              <Link
+                to="/account"
+                className="nav-links"
+                onClick={closeMobileMenu}>
+                <i className="fas fa-user-astronaut" />
+              </Link>
+            </li>
+          )}
+
+          {!userState.loggedIn && (
+            <li className="nav-item">
+              <Link
+                to="/signin"
+                className="nav-links"
+                onClick={closeMobileMenu}>
+                <i className="fas fa-user-astronaut" />
+              </Link>
+            </li>
+          )}
         </ul>
       </nav>
     </>

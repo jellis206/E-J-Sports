@@ -28,11 +28,13 @@ export function LoginForm(props) {
     <FormBoxContainer>
       <FormContainer onSubmit={handleSubmit(onSubmit)}>
         <Input type="email" placeholder="Email" {...register('email')} />
+        <p>{errors.email?.message}</p>
         <Input
           type="password"
           placeholder="Password"
           {...register('password')}
         />
+        <p>{errors.password?.email}</p>
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
       <MutedLink href="#">Forget your password?</MutedLink>
