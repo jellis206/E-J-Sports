@@ -14,7 +14,7 @@ function App() {
   return (
     <div>
       {/* when deploying put E-J-Sports/build between quotes */ }
-      <Router basename="E-J-Sports/front-end/build">
+      <Router basename="E-J-Sports/front-end/build/">
         <Navbar />
         <Routes>
           <Route path="/" exact element={ <Home /> } />
