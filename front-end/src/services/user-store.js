@@ -13,18 +13,22 @@ export const useUserStore = create(
       setPassword: (password) => set({ password }),
       setLoggedIn: (loggedIn) => set({ loggedIn }),
 
-      signUserIn: (user) => set(() => ({
-        name: user.name,
-        email: user.email,
-        password: user.password,
-        loggedIn: true
-      })),
+      signUserIn: (user) => {
+        set(() => ({
+          name: user.name,
+          email: user.email,
+          password: user.password,
+          loggedIn: true
+        }));
+      },
 
-      logUserOut: () => set(() => ({
-        name: '',
-        email: '',
-        password: '',
-        loggedIn: false
-      }))
+      logUserOut: () => {
+        set(() => ({
+          name: '',
+          email: '',
+          password: '',
+          loggedIn: false
+        }));
+      }
     };
   });

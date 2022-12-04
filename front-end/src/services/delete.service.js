@@ -17,7 +17,6 @@ const deleteUser = async (credentials) => {
   } catch (error) {
     setError("error deleting a ticket" + error);
   } finally {
-    console.log(response);
     return response;
   }
 };

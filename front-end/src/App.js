@@ -1,23 +1,20 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/navbar/Navbar';
+import AccountPage from './components/pages/AccountPage';
 import Home from './components/pages/Home';
 import NBA from './components/pages/NBA';
 import NFL from './components/pages/NFL';
 import NoPage from './components/pages/NoPage';
 import Signin from './components/pages/Signin';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { useUserStore } from './services/user-store';
-import AccountPage from './components/pages/AccountPage';
 
 function App() {
-  const userState = useUserStore();
-
   return (
     <div>
       {/* when deploying put E-J-Sports/build between quotes */ }
-      <Router basename="">
+      <Router basename="E-J-Sports/front-end/build">
         <Navbar />
         <Routes>
           <Route path="/" exact element={ <Home /> } />

@@ -48,7 +48,8 @@ app.get('/api/user', async (req, res) => {
   try {
     let user = await Users.findOne({ email: userEmail, password: userPassword });
     console.log(user);
-    res.send({ user: user });
+    if (user != null) { res.send({ user: user }); }
+    else { res.sendStatus(500); }
   } catch (error) {
     console.log(error);
     res.sendStatus(500);

@@ -1,6 +1,5 @@
-import { faColumns } from '@fortawesome/free-solid-svg-icons';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Modal, Box, TextField } from '@mui/material';
+import { Box, Modal, TextField } from '@mui/material';
 import Button from '@mui/material/Button';
 import {
   MDBCard,
@@ -10,8 +9,7 @@ import {
   MDBContainer,
   MDBRow
 } from 'mdb-react-ui-kit';
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { attemptDeleteUser } from '../../services/delete.service';
@@ -167,7 +165,7 @@ export default function AccountPage() {
                   </MDBCol>
                   <MDBCol>
                     <Button onClick={ deleteUser }
-                      className="mx-2 my-1" variant='outlined' color='primary'>
+                      className="mx-2 my-1" variant='outlined' color='error'>
                       Delete
                     </Button>
                   </MDBCol>
