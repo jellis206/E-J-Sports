@@ -1,14 +1,15 @@
 import { instance } from './server-instance.service';
 
-export const attemptUserLogin = async (credentials) => {
-  return await getUser(credentials);
+export const attemptDeleteUser = async (credentials) => {
+  return await deleteUser(credentials);
 };
 
-const getUser = async (credentials) => {
+const deleteUser = async (credentials) => {
   let response;
   try {
-    response = await instance.get('/api/user', {
-      params: {
+    response = await instance.delete('/api/user', {
+      data: {
+        name: credentials.name,
         email: credentials.email,
         password: credentials.password
       }

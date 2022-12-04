@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { AccountBox } from '../account-box/account-box';
 
 const SigninContainer = styled.div`
+  background-color: #dadada;
   width: 100%;
   height: 100%;
   display: flex;
@@ -14,9 +15,11 @@ const SigninContainer = styled.div`
 
 function Signin() {
   return (
-    <SigninContainer>
-      <AccountBox />
-    </SigninContainer>
+    <div className='row-2'>
+      <SigninContainer>
+        <AccountBox />
+      </SigninContainer>
+    </div>
   );
 }
 

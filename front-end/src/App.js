@@ -23,8 +23,8 @@ function App() {
           <Route path="/" exact element={ <Home /> } />
           <Route path="/nfl" element={ <NFL /> } />
           <Route path="/nba" element={ <NBA /> } />
-          { userState.loggedIN && (<Route path="/account" element={ <AccountPage /> } />) }
-          { !userState.loggedIN && (<Route path="/signin" element={ <Signin /> } />) }
+          <Route path="/account" element={ <AccountPage /> } />
+          <Route path="/signin" element={ <Signin /> } />
           <Route path="*" element={ <NoPage /> } />
         </Routes>
       </Router>

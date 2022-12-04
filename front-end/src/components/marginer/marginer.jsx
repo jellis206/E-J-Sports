@@ -16,9 +16,9 @@ const VerticalMargin = styled.span`
 function Marginer(props) {
   const { direction } = props;
 
-  if (direction === 'horizontal') return <HorizontalMargin {...props} />;
+  if (direction === 'horizontal') return <HorizontalMargin { ...props } />;
   else {
-    return <VerticalMargin {...props} />;
+    return <VerticalMargin { ...props } />;
   }
 }
 
