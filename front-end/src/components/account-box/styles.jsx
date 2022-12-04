@@ -74,18 +74,12 @@ export const InnerContainer = styled.div`
   padding: 0 1.8em;
 `;
 
-export const FormBoxContainer = styled.div`
+export const FormBox = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 10px;
-`;
-
-export const FormContainer = styled.form`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
 `;
 
 export const MutedLink = styled.a`
@@ -105,6 +99,7 @@ export const BoldLink = styled.a`
 
 export const Input = styled.input`
   width: 100%;
+  text-align: left;
   height: 42px;
   outline: none;
   padding: 0px 10px;

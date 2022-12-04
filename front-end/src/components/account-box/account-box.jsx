@@ -1,6 +1,6 @@
 import React, { useState, createContext } from 'react';
 import { LoginForm } from './login-form';
-import { SignupForm } from './signup-form';
+import { RegisterForm } from './register-form';
 import { useAppStore } from '../../services/app-store';
 import {
   BoxContainer,
@@ -14,9 +14,9 @@ import {
 
 export const AccountContext = createContext(undefined);
 
-export function AccountBox(props) {
-  const [isExpanded, setExpanded] = useState(false);
-  const [active, setActive] = useState('signin');
+export const AccountBox = () => {
+  const [ isExpanded, setExpanded ] = useState(false);
+  const [ active, setActive ] = useState('signin');
 
   const appState = useAppStore();
 
@@ -65,37 +65,37 @@ export function AccountBox(props) {
   };
 
   return (
-    <AccountContext.Provider value={contextValue}>
-      {!appState.mobileMenuActive && (
+    <AccountContext.Provider value={ contextValue }>
+      { !appState.mobileMenuActive && (
         <BoxContainer>
           <TopContainer>
             <BackDrop
-              initial={false}
-              animate={isExpanded ? 'expanded' : 'collapsed'}
-              variants={backdropVariants}
-              transition={expandingTransition}
+              initial={ false }
+              animate={ isExpanded ? 'expanded' : 'collapsed' }
+              variants={ backdropVariants }
+              transition={ expandingTransition }
             />
-            {active === 'signin' && (
+            { active === 'signin' && (
               <HeaderContainer>
                 <HeaderText>Welcome</HeaderText>
                 <HeaderText>Back</HeaderText>
                 <SmallText>Please sign-in to continue!</SmallText>
               </HeaderContainer>
-            )}
-            {active === 'signup' && (
+            ) }
+            { active === 'signup' && (
               <HeaderContainer>
                 <HeaderText>Create</HeaderText>
                 <HeaderText>Account</HeaderText>
                 <SmallText>Please sign-up to continue!</SmallText>
               </HeaderContainer>
-            )}
+            ) }
           </TopContainer>
           <InnerContainer>
-            {active === 'signin' && <LoginForm />}
-            {active === 'signup' && <SignupForm />}
+            { active === 'signin' && <LoginForm /> }
+            { active === 'signup' && <RegisterForm /> }
           </InnerContainer>
         </BoxContainer>
-      )}
+      ) }
     </AccountContext.Provider>
   );
-}
+};

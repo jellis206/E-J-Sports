@@ -6,7 +6,7 @@ import { useUserStore } from '../../services/user-store';
 import './Navbar.css';
 
 function Navbar() {
-  const [click, setClick] = useState(false);
+  const [ click, setClick ] = useState(false);
 
   const appState = useAppStore();
   const userState = useUserStore();
@@ -25,53 +25,53 @@ function Navbar() {
     <>
       <nav className="navbar">
         <div>
-          <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+          <Link to="/" className="navbar-logo" onClick={ closeMobileMenu }>
             <Logo />
           </Link>
         </div>
-        <div className="menu-icon" onClick={handleClick}>
-          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+        <div className="menu-icon" onClick={ handleClick }>
+          <i className={ click ? 'fas fa-times' : 'fas fa-bars' } />
         </div>
-        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+        <ul className={ click ? 'nav-menu active' : 'nav-menu' }>
           <li className="nav-item">
-            <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+            <Link to="/" className="nav-links" onClick={ closeMobileMenu }>
               <i className="fas fa-home" />
             </Link>
           </li>
 
           <li className="nav-item">
-            <Link to="/nfl" className="nav-links" onClick={closeMobileMenu}>
+            <Link to="/nfl" className="nav-links" onClick={ closeMobileMenu }>
               NFL <i className="fas fa-football" />
             </Link>
           </li>
 
           <li className="nav-item">
-            <Link to="/nba" className="nav-links" onClick={closeMobileMenu}>
+            <Link to="/nba" className="nav-links" onClick={ closeMobileMenu }>
               NBA <i className="fas fa-basketball" />
             </Link>
           </li>
 
-          {userState.loggedIn && (
+          { userState.loggedIn && (
             <li className="nav-item">
               <Link
                 to="/account"
                 className="nav-links"
-                onClick={closeMobileMenu}>
+                onClick={ closeMobileMenu }>
                 <i className="fas fa-user-astronaut" />
               </Link>
             </li>
-          )}
+          ) }
 
-          {!userState.loggedIn && (
+          { !userState.loggedIn && (
             <li className="nav-item">
               <Link
                 to="/signin"
                 className="nav-links"
-                onClick={closeMobileMenu}>
+                onClick={ closeMobileMenu }>
                 <i className="fas fa-user-astronaut" />
               </Link>
             </li>
-          )}
+          ) }
         </ul>
       </nav>
     </>
