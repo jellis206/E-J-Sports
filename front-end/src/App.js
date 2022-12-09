@@ -13,8 +13,8 @@ import Signin from './components/pages/Signin';
 function App() {
   return (
     <div>
-      {/* when deploying put E-J-Sports/build between quotes */ }
-      <Router basename="E-J-Sports/front-end/build/">
+      {/* when deploying put E-J-Sports/front-end/build/ between quotes */ }
+      <Router basename="">
         <Navbar />
         <Routes>
           <Route path="/" exact element={ <Home /> } />

@@ -13,12 +13,12 @@ function Navbar() {
 
   const handleClick = () => {
     setClick(!click);
-    appState.mobileMenuActive ? appState.toggleOff() : appState.toggleOn();
+    appState.mobileMenuActive ? appState.toggleMenuOff() : appState.toggleMenuOn();
   };
 
   const closeMobileMenu = () => {
     setClick(false);
-    appState.toggleOff();
+    appState.toggleMenuOff();
   };
 
   return (

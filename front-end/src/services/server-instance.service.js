@@ -1,4 +1,4 @@
-import axios, { HttpStatusCode } from 'axios';
+import axios from 'axios';
 import { serverCodes } from './server-codes.enum';
 
 export const instance = axios;

@@ -1,6 +1,8 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { TextField } from '@mui/material';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { useAppStore } from '../../services/app-store';
 import { useNavigate } from 'react-router-dom';
 import { attemptRegisterUser } from '../../services/register.service';
 import { serverCodes } from '../../services/server-codes.enum';
@@ -10,7 +12,7 @@ import { RegisterSchema } from '../../validation/login-schemas';
 import { Marginer } from '../marginer/marginer';
 import { AccountContext } from './account-box';
 import {
-  BoldLink, FormBox, Input, MutedLink,
+  BoldLink, FormBox, MutedLink,
   SubmitButton
 } from './styles';
 
@@ -18,6 +20,7 @@ export const RegisterForm = () => {
   const { switchToSignin } = useContext(AccountContext);
   const userState = useUserStore();
   const navigate = useNavigate();
+  const appState = useAppStore();
 
   const {
     register,
@@ -27,37 +30,65 @@ export const RegisterForm = () => {
   } = useForm({ resolver: yupResolver(RegisterSchema) });
 
   const submitForm = async (data) => {
+    appState.setLoading(true);
     const response = await attemptRegisterUser(data);
     if (checkValidity(response) === serverCodes.Good) {
       userState.signUserIn(response.data.user);
       navigate('/account');
     }
     reset();
+    appState.setLoading(false);
   };
 
   return (
     <FormBox onSubmit={ handleSubmit(submitForm) }>
-      <Input type="text"
-        placeholder={ errors.name ? errors.email.name : "Full Name" }
+      <TextField
+        type="text"
+        label="Full Name"
+        fullWidth
+        helperText={ errors.name ? errors.name.message : " " }
+        error={ errors.name ? true : false }
+        color={ errors.name ? "error" : "primary" }
+        variant="outlined"
+        margin="dense"
+        size="small"
         { ...register('name') } />
 
-      <Input type="email"
-        placeholder={ errors.email ? errors.email.message : "Email" }
+      <TextField
+        type="email"
+        label="Email"
+        fullWidth
+        helperText={ errors.email ? errors.email.message : " " }
+        error={ errors.email ? true : false }
+        color={ errors.email ? "error" : "primary" }
+        variant="outlined"
+        margin="dense"
+        size="small"
         { ...register('email') } />
 
-      <Input
+      <TextField
         type="password"
-        placeholder={ errors.password ? errors.password.message : "Password" }
+        label="Password"
+        fullWidth
+        helperText={ errors.password ? errors.password.message : " " }
+        error={ errors.password ? true : false }
+        color={ errors.password ? "error" : "primary" }
+        variant="outlined"
+        margin="dense"
+        size="small"
         { ...register('password') }
       />
 
-      <Input
+      <TextField
         type="password"
-        placeholder={
-          errors.confirmPassword
-            ? errors.confirmPassword.message
-            : "Confirm Password"
-        }
+        label="Confirm Password"
+        fullWidth
+        helperText={ errors.password ? errors.password.message : " " }
+        error={ errors.password ? true : false }
+        color={ errors.password ? "error" : "primary" }
+        variant="outlined"
+        margin="dense"
+        size="small"
         { ...register('confirmPassword') }
       />
       <Marginer direction="vertical" margin={ 10 } />
@@ -69,6 +100,7 @@ export const RegisterForm = () => {
           Signin
         </BoldLink>
       </MutedLink>
+      <Marginer direction="vertical" margin="1em" />
     </FormBox>
   );
 };

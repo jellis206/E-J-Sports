@@ -80,6 +80,7 @@ export const FormBox = styled.form`
   flex-direction: column;
   align-items: center;
   margin-top: 10px;
+  transition: all 200ms ease-in-out;
 `;
 
 export const MutedLink = styled.a`
